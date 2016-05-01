@@ -1,0 +1,57 @@
+group 'docTohtml'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath('org.akhikhl.gretty:gretty:+')
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'org.akhikhl.gretty'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+version 1
+repositories {
+    mavenCentral()
+}
+
+gretty {
+    contextPath = "/"
+    httpPort = 8888
+    servletContainer = 'tomcat8'
+}
+
+dependencies {
+    compile("org.thymeleaf:thymeleaf-spring4:2.1.4.RELEASE")
+    compile("org.thymeleaf:thymeleaf:2.1.4.RELEASE")
+    compile("org.springframework:spring-context:4.2.1.RELEASE")
+    compile("org.springframework:spring-orm:4.2.1.RELEASE")
+    compile("org.springframework:spring-webmvc:4.2.1.RELEASE")
+    compile("org.hibernate:hibernate-core:5.0.1.Final")
+    compile("com.google.guava:guava:18.0")
+
+//  poi
+    compile('org.apache.poi:poi:3.15-beta1')
+    compile('org.apache.poi:poi-ooxml:3.15-beta1')
+    compile('org.apache.poi:poi-ooxml-schemas:3.15-beta1')
+    compile('org.apache.poi:poi-scratchpad:3.15-beta1')
+    compile('org.apache.poi:poi-examples:3.15-beta1')
+
+
+
+    testCompile("org.springframework:spring-test:4.2.1.RELEASE")
+    testCompile("com.github.springtestdbunit:spring-test-dbunit:1.2.1")
+    testCompile("junit:junit:4.12")
+    testCompile("org.mockito:mockito-core:1.10.19")
+
+    runtime("org.dbunit:dbunit:2.5.1")
+    compile("com.h2database:h2:1.4.189")
+
+    providedCompile('javax.servlet:javax.servlet-api:3.1.0')
+}

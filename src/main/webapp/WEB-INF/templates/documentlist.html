@@ -1,0 +1,50 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width-device-width, initial-scale-1"/>
+    <meta http-equiv="x-ua-compatible" content="ie-edge"/>
+    <link href="../../css/bootstrap.css"
+          th:href="@{/css/bootstrap.css}"
+          rel="stylesheet" type="text/css"/>
+    <title> wordToHtml</title>
+</head>
+<body>
+<div class="page-header">
+    <h1>Welcome</h1>
+</div>
+<div class="container">
+    
+    <div class="col-md-offset-1 col-md-10">
+        <form method="GET"
+              th:object="${contentlist}"
+                >
+            <table class="table table-striped" th:if="${#lists.size(contentlist)>0}">
+                <thead>
+                <th><input id="selectAllButton" type="checkbox"/></th>
+                <th>name</th>
+                <th>number</th>
+                <th> course</th>
+                <th> class</th>
+                </thead>
+                <tbody>
+                <tr th:each="content : ${contentlist}" th:object="${content}">
+                    <td><input name="id" th:value="*{ID}" type="checkbox"/></td>
+                    <td><a th:text="*{name}" href="#" ></a></td>
+
+
+
+                </tr>
+                </tbody>
+            </table>
+
+        </form>
+    </div>
+</div>
+<script src="../../js/jquery.js"
+        th:src="@{/js/jquery.js}"
+        type="text/javascript"></script>
+</body>
+</html>
