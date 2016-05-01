@@ -26,5 +26,27 @@ public class Document implements Serializable {
     @Column(unique = true)
     private String content;
 
+    public int getID() {
+        return ID;
+    }
 
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return "Document{" +
+                "ID=" + ID +
+                ", content='" + content + '\'' +
+                '}';
+    }
 }
