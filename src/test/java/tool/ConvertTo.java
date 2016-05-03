@@ -1,23 +1,27 @@
-package com.jy.dao;
+package tool;
 
 import org.apache.poi.hwpf.HWPFDocument;
-import org.apache.poi.hwpf.extractor.Word6Extractor;
-import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.*;
 
 /**
  *  @author john
  */
 public class ConvertTo {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
+        String path = "src/main/resources/test.docx";
+        String  path2 = "src/main/resources/test2.doc";
         InputStream inputStream = new FileInputStream(new File
-                ("src/main/resources/test.docx"));
-        XWPFDocument document = new XWPFDocument(inputStream);
+                (path2));
+        XWPFDocument document = null;
+        try {
+            document = new XWPFDocument(inputStream);
+        } catch (IOException e) {
+            HWPFDocument document2 = new HWPFDocument(inputStream);
+            e.printStackTrace();
+        }
 //        HWPFDocument document = new HWPFDocument(inputStream);
         System.out.println(document.getDocument());
         XWPFWordExtractor extractor = new XWPFWordExtractor(document);

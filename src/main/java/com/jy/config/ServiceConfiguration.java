@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class ServiceConfiguration {
-    @Bean
+//    @Bean
     public WordToHtmlService wordToHtmlService(WordToHtmlDao wordToHtmlDao) {
         return new WordToHtmlService(wordToHtmlDao);
     }

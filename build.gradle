@@ -16,13 +16,12 @@ apply plugin: 'war'
 apply plugin: 'org.akhikhl.gretty'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-version 1
 repositories {
     mavenCentral()
 }
 
 gretty {
-    contextPath = "/"
+    contextPath = "/test"
     httpPort = 8888
     servletContainer = 'tomcat8'
 }

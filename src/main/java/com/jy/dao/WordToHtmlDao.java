@@ -2,6 +2,7 @@ package com.jy.dao;
 
 import com.jy.domain.Document;
 import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
@@ -10,7 +11,6 @@ import java.util.List;
 /**
  *@author john
  *
- * @
  */
 @Transactional
 public class WordToHtmlDao implements Serializable {

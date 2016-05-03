@@ -19,7 +19,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 @DynamicInsert(value = true)
 public class Document implements Serializable {
 
-
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private int ID;
