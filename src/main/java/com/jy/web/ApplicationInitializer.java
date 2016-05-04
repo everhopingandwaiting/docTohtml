@@ -1,5 +1,8 @@
-package com.jy.config;
+package com.jy.web;
 
+import com.jy.config.DaoConfig;
+import com.jy.config.ServiceConfiguration;
+import com.jy.config.WebConfiguration;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;

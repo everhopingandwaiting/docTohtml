@@ -17,12 +17,14 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Table(name = "DOCUMENT")
 @DynamicUpdate(value = true)
 @DynamicInsert(value = true)
+@DiscriminatorValue("Document")
 public class Document implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private int ID;
-    @Column(unique = true)
+
+    @Column(unique = false)
     private String content;
 
     public int getID() {
