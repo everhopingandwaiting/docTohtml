@@ -12,6 +12,7 @@ import java.util.List;
  *@author john
  *
  */
+@Repository
 @Transactional
 public class WordToHtmlDao implements Serializable {
     private HibernateTemplate template;

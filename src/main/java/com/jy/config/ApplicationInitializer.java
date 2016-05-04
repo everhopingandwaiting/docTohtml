@@ -1,7 +1,10 @@
 package com.jy.config;
 
 import org.springframework.context.ApplicationContextInitializer;
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.Filter;
 
 /**
  * @author john
@@ -27,6 +30,13 @@ public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherSe
         return new ApplicationContextInitializer[]{
                 applicationContext -> applicationContext.getEnvironment().setActiveProfiles("prod")
         };
+    }
+    @Override
+    protected Filter[] getServletFilters() {
+        CharacterEncodingFilter filter = new CharacterEncodingFilter();
+        filter.setEncoding("utf-8");
+        filter.setForceEncoding(true);
+        return new Filter[]{filter};
     }
 
 }

@@ -21,7 +21,7 @@ repositories {
 }
 
 gretty {
-    contextPath = "/test"
+    contextPath = "/doc"
     httpPort = 8888
     servletContainer = 'tomcat8'
 }

@@ -16,13 +16,13 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan("web")
+@ComponentScan("com.jy.web")
 public class WebConfiguration extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         super.addViewControllers(registry);
-        registry.addRedirectViewController("/", "/list");
+        registry.addRedirectViewController("/", "/index");
     }
 
     @Bean
