@@ -1,5 +1,6 @@
 package com.jy.config;
 
+import com.jy.dao.WordToHtmlDao;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,6 +24,10 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 public class DaoConfig {
 
+    @Bean
+    public WordToHtmlDao wordToHtmlDao(HibernateTemplate hibernateTemplate) {
+        return new WordToHtmlDao(hibernateTemplate);
+    }
 
     @Bean
     public HibernateTemplate hibernateTemplate(SessionFactory sessionFactory) {
@@ -45,7 +50,7 @@ public class DaoConfig {
     public DataSource DataSource() {
         //TODO replace DriverManagerDataSource to support connection pool etc.
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl("jdbc:h2:tcp://localhost:9092/~/test");
+        dataSource.setUrl("jdbc:h2:tcp://localhost:9092/~/doc");
         dataSource.setDriverClassName("org.h2.Driver");
         dataSource.setUsername("sa");
         dataSource.setPassword("");

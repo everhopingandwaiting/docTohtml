@@ -14,11 +14,11 @@ import java.util.List;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "DOCUMENT")
+@Table(name = "WORDTOHTML")
 @DynamicUpdate(value = true)
 @DynamicInsert(value = true)
-@DiscriminatorValue("Document")
-public class Document implements Serializable {
+@DiscriminatorValue("WordToHtml")
+public class WordToHtml implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -45,7 +45,7 @@ public class Document implements Serializable {
 
     @Override
     public String toString() {
-        return "Document{" +
+        return "WordToHtml{" +
                 "ID=" + ID +
                 ", content='" + content + '\'' +
                 '}';

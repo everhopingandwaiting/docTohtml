@@ -1,10 +1,7 @@
 package com.jy.dao;
 
-import com.jy.domain.Document;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+import com.jy.domain.WordToHtml;
 import org.springframework.orm.hibernate5.HibernateTemplate;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
@@ -26,18 +23,18 @@ public class WordToHtmlDao implements Serializable {
 
 
     @Transactional(readOnly = true)
-    public List<Document> findAll() {
-        return (List<Document>) template.find("from Document");
+    public List<WordToHtml> findAll() {
+        return (List<WordToHtml>) template.find("from Document");
 
     }
 
-    public void save(Document document) {
-        template.save(document);
+    public void save(WordToHtml wordToHtml) {
+        template.save(wordToHtml);
     }
 
-    public void delete(Document document
+    public void delete(WordToHtml wordToHtml
     ) {
-        template.delete(document);
+        template.delete(wordToHtml);
     }
 
 

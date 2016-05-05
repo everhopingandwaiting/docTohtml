@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * @author john
  */
 @Configuration
-@Service
+//@Service
 public class ServiceConfiguration {
     @Bean
     public WordToHtmlService wordToHtmlService(WordToHtmlDao wordToHtmlDao) {

@@ -1,4 +1,4 @@
-package com.jy.web;
+package com.jy.config;
 
 import com.jy.config.DaoConfig;
 import com.jy.config.ServiceConfiguration;
