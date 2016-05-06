@@ -26,6 +26,25 @@ public class WordToHtml implements Serializable {
 
     @Column(unique = false)
     private String content;
+    @Column(unique = false)
+    private String path;
+
+    @Override
+    public String toString() {
+        return "WordToHtml{" +
+                "ID=" + ID +
+                ", content='" + content + '\'' +
+                ", path='" + path + '\'' +
+                '}';
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
 
     public int getID() {
         return ID;
@@ -43,11 +62,5 @@ public class WordToHtml implements Serializable {
         this.content = content;
     }
 
-    @Override
-    public String toString() {
-        return "WordToHtml{" +
-                "ID=" + ID +
-                ", content='" + content + '\'' +
-                '}';
-    }
+
 }

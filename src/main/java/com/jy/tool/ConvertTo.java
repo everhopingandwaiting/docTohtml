@@ -1,20 +1,24 @@
-package tool;
+package com.jy.tool;
 
+import com.jy.domain.WordToHtml;
+import com.jy.service.WordToHtmlService;
 import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.*;
 
 /**
- *  @author john
+ * @author john
  */
 public class ConvertTo {
-    public static void main(String[] args) throws IOException {
-        String path = "src/main/resources/test.docx";
-        String  path2 = "src/main/resources/test2.doc";
+
+    public static void main(String[] args) throws Exception {
+ /*       String path = "src/main/resources/test.docx";
+        String path2 = "src/main/resources/test2.doc";
         InputStream inputStream = new FileInputStream(new File
-                (path2));
+                (path));
         XWPFDocument document = null;
         try {
             document = new XWPFDocument(inputStream);
@@ -26,10 +30,12 @@ public class ConvertTo {
         System.out.println(document.getDocument());
         XWPFWordExtractor extractor = new XWPFWordExtractor(document);
         System.out.println(extractor.getText());
-
+//        WordToHtml html = new WordToHtml();
+//        html.setContent(extractor.getText());*/
+        System.out.println(ToHtml(""));
     }
 
-    public static String ToHtml(String path) throws Exception{
+    public static String ToHtml(String path) throws Exception {
 //        String content = new StringBuffer().toString();
         if (path.equals("") || path == null) {
             path = "src/main/resources/test.docx";

@@ -4,6 +4,7 @@ import com.jy.web.AuthenicationInteceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.thymeleaf.spring4.SpringTemplateEngine;
@@ -36,6 +37,11 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         templateResolver.setCacheable(false);
         return templateResolver;
     }
+/*
+    @Bean
+    public CommonsMultipartResolver multipartResolver() {
+        return new CommonsMultipartResolver();
+    }*/
 
     @Bean
     public SpringTemplateEngine templateEngine() {
