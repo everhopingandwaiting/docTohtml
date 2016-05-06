@@ -35,7 +35,7 @@
             </tr>
             <tr>
                 <td colspan="2" align="center">
-                    <button type="button" onclick="doUpload()">上传</button>
+                    <button type="submit" >上传</button>
                     <button type="button" onclick="hide('upload')">返回</button>
                 </td>
             </tr>
@@ -58,6 +58,8 @@
             cache: false,
             enctype: 'multipart/form-data',     //  ok
             async:false,
+            processData: false,
+            contentType: false,
             success: function (data) {
                 if ("success" == data.msg){
                     alert("hjh")
