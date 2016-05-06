@@ -56,14 +56,17 @@
             url: 'upload',
 //            data: $('#uploadForm').serialize(),
             data:formDate,
+            dataType:'json',
             cache: false,
             enctype: 'multipart/form-data',     //  ok
             async:false,
-//            processData: false,
-//            contentType: false,
+            processData: false,
+            contentType: false,
             success: function (data) {
                 if ("success" == data.info){
                     alert("hjh")
+                }else {
+                    alert(data.info)
                 }
             }
         });
