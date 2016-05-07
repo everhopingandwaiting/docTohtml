@@ -9,7 +9,6 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -24,10 +23,12 @@ public class WordToHtml implements Serializable {
     @GeneratedValue(strategy = IDENTITY)
     private int ID;
 
-    @Column(unique = false,length = 10240)
+    @Column(unique = false, length = 10240)
     private String content;
     @Column(unique = false)
     private String path;
+    @Column(unique = false, length = 10240)
+    private String htmlContentPath;
 
     @Override
     public String toString() {
@@ -35,7 +36,16 @@ public class WordToHtml implements Serializable {
                 "ID=" + ID +
                 ", content='" + content + '\'' +
                 ", path='" + path + '\'' +
+                ", htmlContentPath='" + htmlContentPath + '\'' +
                 '}';
+    }
+
+    public String getHtmlContentPath() {
+        return htmlContentPath;
+    }
+
+    public void setHtmlContentPath(String htmlContentPath) {
+        this.htmlContentPath = htmlContentPath;
     }
 
     public String getPath() {

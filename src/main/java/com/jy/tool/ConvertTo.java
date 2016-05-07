@@ -40,7 +40,7 @@ public class ConvertTo {
     public static String ToHtml(String path) throws Exception {
 //        String content = new StringBuffer().toString();
         if (path.equals("") || path == null) {
-            path = "src/main/resources/test.doc";
+            path = "src/main/resources/gongshi.docx";
         }
         InputStream inputStream = new FileInputStream(new File(path));
         if (path.matches("(.*).doc$")) {
