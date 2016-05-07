@@ -59,10 +59,12 @@ public class DocToHtml {
         }
     }
 
-    public static void convert2Html(String fileName, String outPutFile) throws TransformerException, IOException,
+    public static void convert2Html(String fileName, String path) throws TransformerException, IOException,
             ParserConfigurationException {
-        if (fileName.equals("") || fileName == null || outPutFile.equals("")) {
+        String outPutFile = "";
+        if (fileName.equals("") || fileName == null || path.equals("")) {
             fileName = "src/main/resources/test.doc";
+            path = "src/main/resources";
             outPutFile = fileName+".html";
         }
         HWPFDocument wordDocument = new HWPFDocument(new FileInputStream(fileName));//WordToHtmlUtils.loadDoc(new FileInputStream(inputFile));
@@ -83,9 +85,9 @@ public class DocToHtml {
             for (int i = 0; i < pics.size(); i++) {
                 Picture pic = (Picture) pics.get(i);
                 System.out.println();
-                FileURIResolver picPath = new FileURIResolver(new File(fileName));
+//                FileURIResolver picPath = new FileURIResolver(new File(fileName));
                 try {
-                    pic.writeImageContent(new FileOutputStream(picPath
+                    pic.writeImageContent(new FileOutputStream(path+"/files/img/"
                             + pic.suggestFullFileName()));
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();

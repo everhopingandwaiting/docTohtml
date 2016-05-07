@@ -18,7 +18,8 @@ public class WordToHtmlService {
         return wordToHtmlDao.findAll();
     }
 
-    public void save(WordToHtml  wordToHtml) {
-      wordToHtmlDao.save(wordToHtml);
+    public int save(WordToHtml  wordToHtml) {
+
+       return wordToHtmlDao.save(wordToHtml);
     }
 }

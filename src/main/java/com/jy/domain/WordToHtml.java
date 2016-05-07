@@ -23,11 +23,11 @@ public class WordToHtml implements Serializable {
     @GeneratedValue(strategy = IDENTITY)
     private int ID;
 
-    @Column(unique = false, length = 10240)
+    @Column(unique = true, length = 10240)
     private String content;
     @Column(unique = false)
     private String path;
-    @Column(unique = false, length = 10240)
+    @Column(unique = true, length = 1024)
     private String htmlContentPath;
 
     @Override

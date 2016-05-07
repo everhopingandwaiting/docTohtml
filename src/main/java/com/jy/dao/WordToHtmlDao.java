@@ -28,8 +28,8 @@ public class WordToHtmlDao implements Serializable {
 
     }
 
-    public void save(WordToHtml wordToHtml) {
-        template.save(wordToHtml);
+    public int save(WordToHtml wordToHtml) {
+        return (int) template.save(wordToHtml);
     }
 
     public void delete(WordToHtml wordToHtml
