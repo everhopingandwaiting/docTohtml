@@ -16,7 +16,10 @@
     <h1>word文档显示</h1>
 </div>
 <div class="container">
-    
+    <div class="col-md-offset-1 col-md-10" th:if="${#lists.size(documents)==0}">
+        <h2>No Contents found! Please <a th:href="@{/index}">上传!</a></h2>
+
+    </div>
     <div class="col-md-offset-1 col-md-10">
         <form method="GET"
               th:object="${documents}"
@@ -32,7 +35,7 @@
                     <td><pre th:text="*{{content}}" >test</pre></td>
 
 
-
+                    <td><iframe th:src="*{{htmlContentPath}}" ></iframe></td>
                 </tr>
                 </tbody>
             </table>
