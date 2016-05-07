@@ -15,10 +15,10 @@ import java.io.*;
 public class DocxToHtml
 
 {
-    public static String doGenerateSysOut(String filepath, String path) throws IOException {
+    public static void doGenerateSysOut(String filepath, String path) throws IOException {
         if (filepath.equals("") || filepath == null || path.equals("")) {
             filepath = "src/main/resources/gongshi.docx";
-            path = "src/main/resources";
+            path = "src/main/resources/files";
         }
         String fileOutName = path + filepath.split(path)[1] + ".html";
 
@@ -26,15 +26,15 @@ public class DocxToHtml
 
         XWPFDocument document = new XWPFDocument(new FileInputStream(filepath));
         XHTMLOptions options = XHTMLOptions.create().indent(4);
-        options.URIResolver(new BasicURIResolver("files/img"));
-        File imageFolder = new File(path + "/files/img");
+        options.URIResolver(new BasicURIResolver("/img"));
+        File imageFolder = new File(path + "/img");
         options.setExtractor(new FileImageExtractor(imageFolder));
 
         File outFile = new File(fileOutName);
         outFile.getParentFile().mkdirs();
         OutputStream out = new FileOutputStream(outFile);
         XHTMLConverter.getInstance().convert(document, out, options);
-        return fileOutName;
+//        return fileOutName;
     }
 
     public static void main(String[] args) throws IOException {

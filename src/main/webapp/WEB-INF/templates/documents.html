@@ -30,12 +30,21 @@
                 <th>内容</th>
 
                 </thead>
-                <tbody>
-                <tr th:each="WordToHtml : ${documents}" th:object="${WordToHtml}">
+                <tbody th:each="WordToHtml : ${documents}" th:object="${WordToHtml}">
+                <tr >
                     <td><pre th:text="*{{content}}" >test</pre></td>
 
 
-                    <td><iframe th:src="*{{htmlContentPath}}" ></iframe></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="row">
+
+                                <iframe  style="width:100%; height: 1000px " th:src="*{{htmlContentPath}}"
+                                ></iframe>
+
+                        </div>
+                    </td>
                 </tr>
                 </tbody>
             </table>

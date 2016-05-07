@@ -5,7 +5,6 @@ import org.apache.poi.hwpf.converter.PicturesManager;
 import org.apache.poi.hwpf.converter.WordToHtmlConverter;
 import org.apache.poi.hwpf.usermodel.Picture;
 import org.apache.poi.hwpf.usermodel.PictureType;
-import org.apache.poi.xwpf.converter.core.FileURIResolver;
 import org.w3c.dom.Document;
 
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -35,7 +34,7 @@ public class DocToHtml {
     public static void writeFile(String content, String path) {
         if (content.equals("") || content == null || path.equals("")) {
             content = "src/main/resources/test.doc";
-            path = "src/main/resources";
+            path = "src/main/resources/files";
         }
         FileOutputStream fos = null;
         BufferedWriter bw = null;
@@ -64,9 +63,10 @@ public class DocToHtml {
         String outPutFile = "";
         if (fileName.equals("") || fileName == null || path.equals("")) {
             fileName = "src/main/resources/test.doc";
-            path = "src/main/resources";
-            outPutFile = fileName+".html";
+            path = "src/main/resources/files";
+
         }
+        outPutFile = fileName+".html";
         HWPFDocument wordDocument = new HWPFDocument(new FileInputStream(fileName));//WordToHtmlUtils.loadDoc(new FileInputStream(inputFile));
         WordToHtmlConverter wordToHtmlConverter = new WordToHtmlConverter(
                 DocumentBuilderFactory.newInstance().newDocumentBuilder()
@@ -75,7 +75,7 @@ public class DocToHtml {
             public String savePicture(byte[] content,
                                       PictureType pictureType, String suggestedName,
                                       float widthInches, float heightInches) {
-                return "files/img/" + suggestedName;
+                return "img/" + suggestedName;
             }
         });
         wordToHtmlConverter.processDocument(wordDocument);
@@ -87,7 +87,7 @@ public class DocToHtml {
                 System.out.println();
 //                FileURIResolver picPath = new FileURIResolver(new File(fileName));
                 try {
-                    pic.writeImageContent(new FileOutputStream(path+"/files/img/"
+                    pic.writeImageContent(new FileOutputStream(path+"/img/"
                             + pic.suggestFullFileName()));
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();

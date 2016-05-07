@@ -1,13 +1,8 @@
 package com.jy.tool;
 
-import com.jy.domain.WordToHtml;
-import com.jy.service.WordToHtmlService;
-import org.apache.poi.hwpf.HWPFDocument;
-import org.apache.poi.hwpf.extractor.Word6Extractor;
 import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.*;
 
@@ -17,10 +12,10 @@ import java.io.*;
 public class ConvertTo {
 
     public static void main(String[] args) throws Exception {
- /*       String path = "src/main/resources/test.docx";
+ /*       String filepath = "src/main/resources/test.docx";
         String path2 = "src/main/resources/test2.doc";
         InputStream inputStream = new FileInputStream(new File
-                (path));
+                (filepath));
         XWPFDocument document = null;
         try {
             document = new XWPFDocument(inputStream);
@@ -34,16 +29,26 @@ public class ConvertTo {
         System.out.println(extractor.getText());
 //        WordToHtml html = new WordToHtml();
 //        html.setContent(extractor.getText());*/
-        System.out.println(ToHtml(""));
+//        System.out.println(ToHtml(""));
+        String filepath = "src/main/resources/gongshi.docx";
+        String paths[] = filepath.split("/");
+        int size = paths.length;
+        String path = paths[size-1];
+        System.out.println(filepath.split(path)[0]);
     }
 
-    public static String ToHtml(String path) throws Exception {
+    public static String ToHtml(String filepath) throws Exception {
 //        String content = new StringBuffer().toString();
-        if (path.equals("") || path == null) {
-            path = "src/main/resources/gongshi.docx";
+        if (filepath.equals("") || filepath == null) {
+            filepath = "src/main/resources/gongshi.docx";
         }
-        InputStream inputStream = new FileInputStream(new File(path));
-        if (path.matches("(.*).doc$")) {
+        String paths[] = filepath.split("/");
+        int size = paths.length;
+        String fileRelName = paths[size - 1];
+        String path = filepath.split(fileRelName)[0];
+
+        InputStream inputStream = new FileInputStream(new File(filepath));
+        if (filepath.matches("(.*).doc$")) {
 
 //            HWPFDocument document = new HWPFDocument(inputStream);
 //            return document.getDocumentText();
@@ -60,12 +65,14 @@ public class ConvertTo {
             for (int i=0; i<paraTexts.length; i++) {
                 System.out.println("Paragraph " + (i+1) + " : " + paraTexts[i]);
             }
+
+            DocToHtml.convert2Html(filepath, path);
             return extractor.getText();
-        } else if (path.matches("(.*).docx$")) {
+        } else if (filepath.matches("(.*).docx$")) {
 
             XWPFDocument document = new XWPFDocument(inputStream);
             XWPFWordExtractor extractor = new XWPFWordExtractor(document);
-
+            DocxToHtml.doGenerateSysOut(filepath, path);
             return extractor.getText();
         }
         return "不支持的格式";
