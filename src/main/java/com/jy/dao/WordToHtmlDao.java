@@ -24,7 +24,7 @@ public class WordToHtmlDao implements Serializable {
 
     @Transactional(readOnly = true)
     public List<WordToHtml> findAll() {
-        return (List<WordToHtml>) template.find("from Document");
+        return (List<WordToHtml>) template.find("from WordToHtml");
 
     }
 

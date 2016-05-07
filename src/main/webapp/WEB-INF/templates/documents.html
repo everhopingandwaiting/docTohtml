@@ -13,26 +13,23 @@
 </head>
 <body>
 <div class="page-header">
-    <h1>Welcome</h1>
+    <h1>word文档显示</h1>
 </div>
 <div class="container">
     
     <div class="col-md-offset-1 col-md-10">
         <form method="GET"
-              th:object="${contentlist}"
+              th:object="${documents}"
                 >
-            <table class="table table-striped" th:if="${#lists.size(contentlist)>0}">
+            <table class="table table-striped" th:if="${#lists.size(documents)>0}">
                 <thead>
 
                 <th>内容</th>
-                <th>number</th>
-                <th> course</th>
-                <th> class</th>
+
                 </thead>
                 <tbody>
-                <tr th:each="content : ${contentlist}" th:object="${content}">
-                    <td><input name="id" th:value="*{ID}" type="checkbox"/></td>
-                    <td><a th:text="*{name}" href="#" ></a></td>
+                <tr th:each="WordToHtml : ${documents}" th:object="${WordToHtml}">
+                    <td><pre th:text="*{{content}}" >test</pre></td>
 
 
 

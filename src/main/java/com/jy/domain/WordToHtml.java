@@ -24,7 +24,7 @@ public class WordToHtml implements Serializable {
     @GeneratedValue(strategy = IDENTITY)
     private int ID;
 
-    @Column(unique = false)
+    @Column(unique = false,length = 10240)
     private String content;
     @Column(unique = false)
     private String path;
