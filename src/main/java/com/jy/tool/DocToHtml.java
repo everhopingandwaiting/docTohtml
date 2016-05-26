@@ -76,6 +76,8 @@ public class DocToHtml {
                                       PictureType pictureType, String suggestedName,
                                       float widthInches, float heightInches) {
                 return "img/" + suggestedName;
+
+
             }
         });
         wordToHtmlConverter.processDocument(wordDocument);

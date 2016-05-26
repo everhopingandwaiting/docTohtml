@@ -34,3 +34,14 @@ contentView
 ![contentView_003](IMG/contentView_003.png)
 
 
+
+资料汇总：
+
+openoffice版：
+http://huangronaldo.iteye.com/blog/1628339
+
+jacob版：
+http://www.iteye.com/problems/15616
+
+三种方式：
+http://feifei.im/archives/93
