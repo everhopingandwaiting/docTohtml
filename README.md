@@ -1,4 +1,6 @@
 # docTohtml
+
+[![Join the chat at https://gitter.im/everhopingandwaiting/docTohtml](https://badges.gitter.im/everhopingandwaiting/docTohtml.svg)](https://gitter.im/everhopingandwaiting/docTohtml?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 springMVC+Hibernate 读取 word 到html页面
 
 ##### 由于对纯 java code 配置方式不太熟练,导致大量查阅 耗时, 比较喜欢这种简介配置方式,相较于以前使用的xml方式.过程中也不断学到新内容
